@@ -1,20 +1,22 @@
--- General setting
+------------------------------ General setting ------------------------------------------
 local api = vim.api
 local g = vim.g
 local opt = vim.opt
 local bo = vim.bo
+
 -- Remap leader and local leader to <Space>
 
 api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
-g.airline_theme = "tomorrow"
 
-opt.number = true
-opt.mouse = "a"
+opt.number = true -- set row number 
+opt.mouse = "a"		-- set use mouse interaction in neovim
 opt.termguicolors = true
 opt.breakindent = true
 opt.undofile = true
+
+------------------------------ Command setting ------------------------------------------
 
 -- Setup clipboard for specific OS
 vim.cmd [[
@@ -32,21 +34,12 @@ vim.cmd [[
   augroup end
 ]]
 
-packer = require "packer"
-local use = packer.use
-packer.reset()
-packer.startup(function()
-	-- Packer plugin 
-	use 'wbthomason/packer.nvim'
-	-- Dashboard
-	use 'glepnir/dashboard-nvim'
-	-- Themes
-	use 'folke/tokyonight.nvim'
-	-- Status bar
-	use 'vim-airline/vim-airline'
-	use 'vim-airline/vim-airline-themes'
-end)
-
+-- Set a theme for neovim
 vim.cmd[[
 	colorscheme tokyonight
 ]]
+
+------------------------------ Call some essential files------------------------------------------
+
+require "lua.plugins"
+require "lua.config.airline"

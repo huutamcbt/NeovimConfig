@@ -29,6 +29,17 @@ packer.startup(function()
 	-- Status bar
 	use 'vim-airline/vim-airline'
 	use 'vim-airline/vim-airline-themes'
+
+  -- File system explorer
+  use 'preservim/nerdtree'                  -- NERDTree
+  use 'Xuyuanp/nerdtree-git-plugin'         -- NERDTree git status
+  use 'ryanoasis/vim-devicons'              -- Vim devicons for file type
+--  use 'tiagofumo/vim-nerdtree-syntax-highlight'   -- Nerd Tree syntax highlight
+  use 'unkiwii/vim-nerdtree-sync'
+
+  -- File search 
+  use {'junegunn/fzf',  run = ":call fzf#install()" }
+  use 'junegunn/fzf.vim'
 end)
 
 end

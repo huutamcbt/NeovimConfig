@@ -52,8 +52,13 @@ vim.cmd [[
 -- Set a theme for neovim
 vim.cmd('colorscheme tokyonight')
 
+-- Disable automatic comment insertion
+vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o')
+
 
 ------------------------------ Call some essential files------------------------------------------
 
-require ("lua.plugins").setup()
-require "lua.config.airline"
+require ("plugins").setup()
+require "config.airline"
+require "config.nerdtree"
+require "config.fzf"

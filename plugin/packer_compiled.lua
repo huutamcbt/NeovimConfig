@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
   },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
   ["vim-nerdtree-sync"] = {
     loaded = true,
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-nerdtree-sync",

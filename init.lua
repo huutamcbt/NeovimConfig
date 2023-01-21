@@ -7,7 +7,8 @@ local bo = vim.bo
 
 -- Remap leader and local leader to <Space>
 
-api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
+
+--api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
@@ -62,3 +63,4 @@ require ("plugins").setup()
 require "config.airline"
 require "config.nerdtree"
 require "config.fzf"
+require "config.floaterm"

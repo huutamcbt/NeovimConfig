@@ -40,6 +40,9 @@ packer.startup(function()
   -- File search 
   use {'junegunn/fzf',  run = ":call fzf#install()" }
   use 'junegunn/fzf.vim'
+
+  -- Terminal
+  use 'voldikss/vim-floaterm'
 end)
 
 end

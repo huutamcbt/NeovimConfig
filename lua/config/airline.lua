@@ -1,32 +1,36 @@
-vim.cmd[[
-" air-line
-let g:airline_powerline_fonts = 1
+-- air-line
+local g = vim.g
+local fn = vim.fn
+g.airline_powerline_fonts = 1
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_theme = "tomorrow"
+if not fn.exists('g:airline_symbols')
+then
+    g.airline_symbols = {}
+end
+g.airline_theme = "tomorrow"
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+-- unicode symbols
+g.airline_left_sep = '»'
+g.airline_left_sep = '▶'
+g.airline_right_sep = '«'
+g.airline_right_sep = '◀'
+g.airline_symbols = {
 
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-]]
+	linenr = '␊',
+	linenr = '␤',
+	linenr = '¶',
+	branch = '⎇',
+	paste = 'ρ',
+	paste = 'Þ',
+	paste = '∥',
+	whitespace = 'Ξ'
+
+}
+-- airline symbols
+g.airline_left_sep = ''
+g.airline_left_alt_sep = ''
+g.airline_right_sep = ''
+g.airline_right_alt_sep = ''
+g.airline_symbols.branch = ''
+g.airline_symbols.readonly = ''
+g.airline_symbols.linenr = ''

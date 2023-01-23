@@ -80,6 +80,12 @@ _G.packer_plugins = {
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["alpha-nvim"] = {
+    config = { "\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
   ["bufdelete.nvim"] = {
     loaded = true,
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufdelete.nvim",
@@ -89,11 +95,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
-  },
-  ["dashboard-nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dashboard-nvim",
-    url = "https://github.com/glepnir/dashboard-nvim"
   },
   fzf = {
     loaded = true,
@@ -154,6 +155,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")

@@ -23,8 +23,15 @@ packer.startup(function()
 	-- Packer plugin 
 	use 'wbthomason/packer.nvim'
 	-- Dashboard
-	use 'glepnir/dashboard-nvim'
-	-- Themes
+	-- use 'glepnir/dashboard-nvim'
+	use {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+  }
+
+  -- Themes
 	use 'folke/tokyonight.nvim'
 	-- Status bar
 	use 'vim-airline/vim-airline'

@@ -1,5 +1,5 @@
 local M = {}
-
+  
 function M.setup()
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local install_plugins = false
@@ -30,19 +30,44 @@ packer.startup(function()
 	use 'vim-airline/vim-airline'
 	use 'vim-airline/vim-airline-themes'
 
-  -- File system explorer
-  use 'preservim/nerdtree'                  -- NERDTree
-  use 'Xuyuanp/nerdtree-git-plugin'         -- NERDTree git status
-  use 'ryanoasis/vim-devicons'              -- Vim devicons for file type
---  use 'tiagofumo/vim-nerdtree-syntax-highlight'   -- Nerd Tree syntax highlight
-  use 'unkiwii/vim-nerdtree-sync'
-
   -- File search 
   use {'junegunn/fzf',  run = ":call fzf#install()" }
   use 'junegunn/fzf.vim'
 
   -- Terminal
   use 'voldikss/vim-floaterm'
+
+  -- Comment plugin
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+
+  -- File explorer nvim tree
+  use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional, for file icons
+  },
+  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+}
+
+  -- Bufferline to show buffer in a line
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  use 'famiu/bufdelete.nvim'      -- Buffer delete plugin to supply for bufferline closed click
+
+  -- Toggle terminal
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+
+  end}
+
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+
+
 end)
 
 end

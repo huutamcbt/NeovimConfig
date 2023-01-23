@@ -8,10 +8,6 @@ local bo = vim.bo
 -- Remap leader and local leader to <Space>
 
 
---api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
-g.mapleader = " "
-g.maplocalleader = " "
-
 opt.number = true 		-- Set row number 
 opt.mouse = "a"			-- Set use mouse interaction in neovim
 opt.termguicolors = true	-- Set terminalcolor for neovim colorscheme
@@ -19,6 +15,7 @@ opt.breakindent = true		-- If "breakindent" is set, line is visually indented
 opt.undofile = true
 opt.ignorecase  = true 		-- Ignore case when searching
 opt.smartcase = true
+opt.mousemoveevent = true
 
 -- Disable backup function
 opt.backup = false
@@ -30,6 +27,7 @@ opt.expandtab = true
 opt.shiftwidth = 2              -- Number of spaces to use for each step of (auto)indent
 opt.tabstop = 2                 -- Number of spaces that a <Tab> in the file counts for
 opt.smarttab = true
+opt.showtabline = 2
 opt.wrap = true                 -- When this option is true, lines longer than the width of the window will wrap and displaying continues on the next line
 
 ------------------------------ Command setting ------------------------------------------
@@ -50,17 +48,21 @@ vim.cmd [[
   augroup end
 ]]
 
--- Set a theme for neovim
-vim.cmd('colorscheme tokyonight')
-
 -- Disable automatic comment insertion
 vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o')
 
 
 ------------------------------ Call some essential files------------------------------------------
 
+require "config.theme"
 require ("plugins").setup()
 require "config.airline"
-require "config.nerdtree"
 require "config.fzf"
-require "config.floaterm"
+require('Comment').setup()
+require "config.nvim-tree"
+require "config.bufferline"
+require "config.keymap"
+require("toggleterm").setup{}
+require'lspconfig'.pyright.setup{}
+require ('config.lsp.pyright')
+require'lspconfig'.tsserver.setup{}

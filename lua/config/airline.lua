@@ -3,7 +3,7 @@ local g = vim.g
 local fn = vim.fn
 g.airline_powerline_fonts = 1
 
-if not fn.exists('g:airline_symbols')
+if not fn.exists('g.airline_symbols')
 then
     g.airline_symbols = {}
 end

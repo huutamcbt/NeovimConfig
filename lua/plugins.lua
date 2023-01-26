@@ -28,6 +28,12 @@ packer.startup(function()
     'goolord/alpha-nvim',
     config = function ()
         require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        local alpha = require'alpha'
+         local dashboard = require'alpha.themes.dashboard'
+        dashboard.section.buttons.val = {
+             dashboard.button( "e", "  New file" , ":ene <BAR> startinsert <CR>"),
+             dashboard.button( "q", "  Quit NVIM" , ":qa<CR>"),
+         }
     end
   }
 
@@ -36,10 +42,6 @@ packer.startup(function()
 	-- Status bar
 	use 'vim-airline/vim-airline'
 	use 'vim-airline/vim-airline-themes'
-
-  -- File search 
-  use {'junegunn/fzf',  run = ":call fzf#install()" }
-  use 'junegunn/fzf.vim'
 
   -- Terminal
   use 'voldikss/vim-floaterm'
@@ -74,9 +76,53 @@ packer.startup(function()
   -- LSP
   use 'neovim/nvim-lspconfig'
 
+  -- Utility
+  -- mkdir
+use {
+  'jghauser/mkdir.nvim'
+}
+
+  -- Formatting
+  require('packer').use { 'mhartington/formatter.nvim' }
+
+  -- Indent blankline
+  -- init.lua
+-- require("packer").startup(function()
+--     use "lukas-reineke/indent-blankline.nvim"
+-- end)
+  -- Make dir if it don't exist when init file
+  -- mkdir
+use {
+  'jghauser/mkdir.nvim'
+}
+  
+  -- Telescope
+  use "nvim-lua/plenary.nvim"
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+-- or                            , branch = '0.1.x',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
+  
+  use "stevearc/dressing.nvim"
+use({
+  "ziontee113/icon-picker.nvim",
+  config = function()
+    require("icon-picker").setup({
+      disable_legacy_commands = true
+    })
+  end,
+})
 
 end)
-
+  -- Treesitter
+      use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
 end
 
 return M

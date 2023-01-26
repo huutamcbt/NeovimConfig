@@ -81,7 +81,7 @@ _G.packer_plugins = {
     url = "https://github.com/numToStr/Comment.nvim"
   },
   ["alpha-nvim"] = {
-    config = { "\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0" },
+    config = { "\27LJ\2\nŸ\2\0\0\t\0\15\1 6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\3\0B\1\2\0029\2\5\0019\2\6\0024\3\3\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\0?\4\0\0=\3\a\2K\0\1\0\f:qa<CR>\19ï™™  Quit NVIM\6q :ene <BAR> startinsert <CR>\18ï’¥  New file\6e\vbutton\bval\fbuttons\fsection\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\5€€À™\4\0" },
     loaded = true,
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
@@ -96,15 +96,26 @@ _G.packer_plugins = {
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  fzf = {
+  ["dressing.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf",
-    url = "https://github.com/junegunn/fzf"
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
   },
-  ["fzf.vim"] = {
+  ["formatter.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
+  ["icon-picker.nvim"] = {
+    config = { "\27LJ\2\nY\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\28disable_legacy_commands\2\nsetup\16icon-picker\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\icon-picker.nvim",
+    url = "https://github.com/ziontee113/icon-picker.nvim"
+  },
+  ["mkdir.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mkdir.nvim",
+    url = "https://github.com/jghauser/mkdir.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -116,6 +127,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
@@ -125,6 +141,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\ADMIN\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
@@ -157,7 +183,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
+try_loadstring("\27LJ\2\nŸ\2\0\0\t\0\15\1 6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\3\0B\1\2\0029\2\5\0019\2\6\0024\3\3\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\0?\4\0\0=\3\a\2K\0\1\0\f:qa<CR>\19ï™™  Quit NVIM\6q :ene <BAR> startinsert <CR>\18ï’¥  New file\6e\vbutton\bval\fbuttons\fsection\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\5€€À™\4\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
@@ -167,6 +193,10 @@ time([[Config for toggleterm.nvim]], false)
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: icon-picker.nvim
+time([[Config for icon-picker.nvim]], true)
+try_loadstring("\27LJ\2\nY\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\28disable_legacy_commands\2\nsetup\16icon-picker\frequire\0", "config", "icon-picker.nvim")
+time([[Config for icon-picker.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

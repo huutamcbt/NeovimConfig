@@ -27,7 +27,9 @@ vim.api.nvim_set_keymap("n", "<A-P>", ":BufferLinePickClose<CR>", { noremap = tr
 
 ------------------------ Toggle terminal ------------------------------
 
-local opts = {}
+
+local opts = { noremap = true, silent = true }
+
       vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
       vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
       vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
@@ -37,3 +39,22 @@ local opts = {}
 
 -- Toggle terminal 
 vim.api.nvim_set_keymap("n", "<C-A-t>", ":ToggleTerm<CR>", { noremap = true, silent = true })
+
+------------------------ Formatter ------------------------------
+-- vim.api.nvim_set_keymap("n", "<leader>f", ":Format<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>F ", ":FormatWrite<CR>", { noremap = true, silent = true })
+
+
+------------------------ Telescope ------------------------------
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+------------------------ Icon picker ------------------------------
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
+vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+-- vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)

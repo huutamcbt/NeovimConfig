@@ -57,7 +57,6 @@ vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatopt
 require "config.theme"
 require ("plugins").setup()
 require "config.airline"
-require "config.fzf"
 require('Comment').setup()
 require "config.nvim-tree"
 require "config.bufferline"
@@ -66,3 +65,9 @@ require("toggleterm").setup{}
 require'lspconfig'.pyright.setup{}
 require ('config.lsp.pyright')
 require'lspconfig'.tsserver.setup{}
+require "config.treesitter"
+-- require("indent_blankline").setup {
+--     -- for example, context is off by default, use this to turn it on
+--     show_current_context = true,
+--     show_current_context_start = true,
+-- }

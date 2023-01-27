@@ -16,10 +16,20 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   install_plugins = true
 end
 
+require("local-plugins").install()
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
+
 packer = require "packer"
 local use = packer.use
 packer.reset()
-packer.startup(function()
+packer.startup({function()
 	-- Packer plugin 
 	use 'wbthomason/packer.nvim'
 	-- Dashboard
@@ -32,6 +42,8 @@ packer.startup(function()
          local dashboard = require'alpha.themes.dashboard'
         dashboard.section.buttons.val = {
              dashboard.button( "e", "  New file" , ":ene <BAR> startinsert <CR>"),
+             dashboard.button( "ff", "  Find file" , ":Telescope find_files <CR>"),
+             dashboard.button( "ofe", "  Open file explorer" , ":ene <BAR> NvimTreeOpen <CR>"),
              dashboard.button( "q", "  Quit NVIM" , ":qa<CR>"),
          }
     end
@@ -103,6 +115,7 @@ use {
 -- or                            , branch = '0.1.x',
   requires = { {'nvim-lua/plenary.nvim'} }
 }
+use { "nvim-telescope/telescope-file-browser.nvim" }
   
   use "stevearc/dressing.nvim"
 use({
@@ -113,9 +126,7 @@ use({
     })
   end,
 })
-
-end)
-  -- Treesitter
+-- Treesitter
       use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -129,6 +140,18 @@ end)
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
 }
+    use{
+      "windwp/nvim-ts-autotag",
+      lock = true,
+      config = function() require('nvim-ts-autotag').setup() end
+    } 
+
+end,
+config = {
+  display = {
+    open_fn = require('packer.util').float,
+  }
+}})
 end
 
 return M

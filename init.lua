@@ -61,11 +61,13 @@ require('Comment').setup()
 require "config.nvim-tree"
 require "config.bufferline"
 require "config.keymap"
-require("toggleterm").setup{}
+require "config.toggleterm"
 require'lspconfig'.pyright.setup{}
 require ('config.lsp.pyright')
 require'lspconfig'.tsserver.setup{}
 require "config.treesitter"
+require 'nvim-treesitter.install'.compilers = { "clang", "gcc" }
+require("telescope").load_extension "file_browser"
 -- require("indent_blankline").setup {
 --     -- for example, context is off by default, use this to turn it on
 --     show_current_context = true,

@@ -62,12 +62,19 @@ require "config.nvim-tree"
 require "config.bufferline"
 require "config.keymap"
 require "config.toggleterm"
-require'lspconfig'.pyright.setup{}
 require ('config.lsp.pyright')
-require'lspconfig'.tsserver.setup{}
 require "config.treesitter"
 require 'nvim-treesitter.install'.compilers = { "clang", "gcc" }
 require("telescope").load_extension "file_browser"
+require "config.mason"
+require "config.mason-lspconfig"
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.eslint.setup{}
+require'lspconfig'.csharp_ls.setup{}
+require("lspconfig").sumneko_lua.setup{}
+require 'config.null-ls'
 -- require("indent_blankline").setup {
 --     -- for example, context is off by default, use this to turn it on
 --     show_current_context = true,

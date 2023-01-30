@@ -44,7 +44,11 @@ function M.setup()
 						dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
 						dashboard.button("ff", "  Find file", ":Telescope find_files <CR>"),
 						dashboard.button("ofe", "  Open file explorer", ":Alpha <CR> <BAR> :NvimTreeOpen <CR>"),
-						dashboard.button("orf", "  Open recently file", ":lua require'Telescope.builtin'.oldfiles{} <CR>"),
+						dashboard.button(
+							"orf",
+							"  Open recently file",
+							":lua require'Telescope.builtin'.oldfiles{} <CR>"
+						),
 						dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
 					}
 				end,
@@ -168,6 +172,91 @@ function M.setup()
 					require("null-ls").setup()
 				end,
 				requires = { "nvim-lua/plenary.nvim" },
+			})
+			-- Neovim colorize
+			use("norcalli/nvim-colorizer.lua")
+			-- Twilight
+			use({
+				"folke/twilight.nvim",
+				config = function()
+					require("twilight").setup({
+						-- your configuration comes here
+						-- or leave it empty to use the default settings
+						-- refer to the configuration section below
+					})
+				end,
+			})
+			-- Zen-mode
+			-- Lua
+			use({
+				"folke/zen-mode.nvim",
+				config = function()
+					require("zen-mode").setup({
+						-- your configuration comes here
+						-- or leave it empty to use the default settings
+						-- refer to the configuration section below
+					})
+				end,
+			})
+			-- install without yarn or npm
+			-- use({
+			--   "iamcco/markdown-preview.nvim",
+			--   run = function()
+			--     vim.fn["mkdp#util#install"]()
+			--   end,
+			-- })
+			-- -- Markdown preview
+			-- use({
+			--   "iamcco/markdown-preview.nvim",
+			--   run = "cd app && npm install",
+			--   setup = function()
+			--     vim.g.mkdp_filetypes = { "markdown" }
+			--   end,
+			--   ft = { "markdown" },
+			-- })
+			-- use {"ellisonleao/glow.nvim", config = function() require("glow").setup({
+			--   install_path = "~/AppData/Local/nvim-data/"
+			-- }) end}
+			--
+			-- Scroll bar for neovim
+			use("petertriho/nvim-scrollbar")
+
+			use({
+				"kevinhwang91/nvim-hlslens",
+				config = function()
+					-- require('hlslens').setup() is not required
+					require("scrollbar.handlers.search").setup({
+						-- hlslens config overrides
+					})
+				end,
+			})
+
+			use({
+				"lewis6991/gitsigns.nvim",
+				config = function()
+					require("gitsigns").setup()
+					require("scrollbar.handlers.gitsigns").setup()
+				end,
+			})
+			use({
+				"adelarsq/image_preview.nvim",
+				lock = false,
+			})
+			use({
+				"dinhhuy258/git.nvim",
+			})
+			-- Lualine
+			use({
+				"nvim-lualine/lualine.nvim",
+				requires = { "kyazdani42/nvim-web-devicons", opt = true },
+			})
+			-- Debugging
+			use("mfussenegger/nvim-dap")
+      use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+			use({
+				"microsoft/vscode-js-debug",
+				opt = true,
+				run = "npm install --legacy-peer-deps && npm run compile",
 			})
 		end,
 		config = {

@@ -72,3 +72,26 @@ vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Ya
 
 vim.api.nvim_set_keymap("n", "<Leader>lf", ":lua vim.lsp.buf.format({ timeout_ms = 2000 }) <CR>", { noremap = true, silent = true })
 -- vim.cmd('map <Leader>lf :lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>')
+
+------------------------ General key mapping------------------------------
+
+-- Remap visual block function
+vim.api.nvim_set_keymap("n","<A-v>", "<C-v>", { noremap = true, silent = true})
+
+
+
+
+------------------------ General key mapping------------------------------
+
+
+vim.keymap.set("n", "<leader>hs", "<Cmd> :Gitsigns stage_hunk<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>hs", "<Cmd> :Gitsigns stage_hunk<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>hr", "<Cmd> :Gitsigns reset_hunk<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>hr", "<Cmd> :Gitsigns reset_hunk<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", '<leader>hS', "<Cmd> :Gitsigns stage_buffer<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", '<leader>hu', "<Cmd> :Gitsigns undo_stage_hunk<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", '<leader>hR', "<Cmd> :Gitsigns reset_buffer<CR>", { noremap = true, silent = true })
+vim.keymap.set('n','<leader>hp','<Cmd> :Gitsigns preview_hunk <CR>', { noremap = true, silent = true })
+vim.keymap.set("n", '<leader>hd', "<Cmd> :Gitsigns diffthis<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", '<leader>td', "<Cmd> :Gitsigns toggle_deleted<CR>", { noremap = true, silent = true })
+vim.keymap.set('n','<leader>tb','<Cmd> :Gitsigns toggle_current_line_blame <CR>',{ noremap = true, silent = true})

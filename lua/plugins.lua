@@ -252,6 +252,9 @@ function M.setup()
 			})
 			-- Debugging
 			use("mfussenegger/nvim-dap")
+      use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+      use "folke/neodev.nvim"
+      use 'ldelossa/nvim-dap-projects'
       use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
 			use({
 				"microsoft/vscode-js-debug",

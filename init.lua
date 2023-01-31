@@ -68,6 +68,7 @@ require("nvim-treesitter.install").compilers = { "clang", "gcc" }
 require("telescope").load_extension("file_browser")
 require("config.mason")
 require("config.mason-lspconfig")
+require 'config.neodev'
 require("lspconfig").pyright.setup({})
 require("lspconfig").tsserver.setup({})
 require("lspconfig").clangd.setup({})
@@ -91,7 +92,7 @@ require 'config.gitsigns'
 require 'config.lualine'
 require('git').setup()
 require 'config.nvim-dap'
-
+require("dapui").setup()
 -- require("zen-mode").toggle({
 --   window = {
 --     width = 0.85, -- width will be 85% of the editor width

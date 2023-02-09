@@ -24,11 +24,13 @@ opt.swapfile = false
 opt.scrolljump = 5 -- Specify lines to scroll when cursor leaves screen
 opt.expandtab = true
 opt.autoindent = true
-opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-opt.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
+opt.shiftwidth = 3 -- Number of spaces to use for each step of (auto)indent
+opt.tabstop = 3 -- Number of spaces that a <Tab> in the file counts for
 opt.smarttab = true
 opt.showtabline = 2
 opt.wrap = true -- When this option is true, lines longer than the width of the window will wrap and displaying continues on the next line
+opt.cursorline = true
+opt.showmode = true
 
 ------------------------------ Command setting ------------------------------------------
 
@@ -68,7 +70,7 @@ require("nvim-treesitter.install").compilers = { "clang", "gcc" }
 require("telescope").load_extension("file_browser")
 require("config.mason")
 require("config.mason-lspconfig")
-require 'config.neodev'
+require("config.neodev")
 require("lspconfig").pyright.setup({})
 require("lspconfig").tsserver.setup({})
 require("lspconfig").clangd.setup({})
@@ -82,23 +84,29 @@ require("lspconfig").jdtls.setup({})
 require("config.null-ls")
 -- A high-performance color highlighter
 require("colorizer").setup({
-  "*",
+	"*",
 })
 -- require "config.nvim-scrollbar"
 -- require 'config.markdown'
 -- require ('hlslens').setup()
 require("image_preview").setup({})
-require 'config.gitsigns'
-require 'config.lualine'
-require('git').setup()
-require 'config.nvim-dap'
+require("config.gitsigns")
+require("config.lualine")
+require("git").setup()
+require("config.nvim-dap")
 require("dapui").setup()
+require("glow").setup({
+	style = "dark",
+	width = 120,
+	glow_path = vim.fn.exepath("glow"),
+	install_path = "C:/Users/ADMIN/AppData/Local/nvim-data",
+})
+
 -- require("zen-mode").toggle({
 --   window = {
 --     width = 0.85, -- width will be 85% of the editor width
 --   },
 -- })
-
 
 -- require("indent_blankline").setup {
 --     -- for example, context is off by default, use this to turn it on

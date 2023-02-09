@@ -11,7 +11,8 @@ vim.g.maplocalleader = " "
 
 vim.api.nvim_set_keymap("n","<C-q>", ":q<CR>", { noremap = true, silent = true})
 vim.api.nvim_set_keymap("n","<C-s>", ":w<CR>", { noremap = true, silent = true})
--- vim.api.nvim_set_keymap("n","<q-a>", ":qa<CR>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("i","<C-s>", "<C-O>:w<CR>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n","<C-A-q>", ":qa<CR>", { noremap = true, silent = true})
 
 ------------------------ Bufferline ------------------------------
 vim.api.nvim_set_keymap("n", "<A-.>", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
@@ -81,7 +82,7 @@ vim.api.nvim_set_keymap("n","<A-v>", "<C-v>", { noremap = true, silent = true})
 
 
 
------------------------- General key mapping------------------------------
+------------------------ Gitsigns key mapping------------------------------
 
 
 vim.keymap.set("n", "<leader>hs", "<Cmd> :Gitsigns stage_hunk<CR>", { noremap = true, silent = true })

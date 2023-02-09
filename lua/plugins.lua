@@ -214,10 +214,10 @@ function M.setup()
 			--   end,
 			--   ft = { "markdown" },
 			-- })
-			-- use {"ellisonleao/glow.nvim", config = function() require("glow").setup({
-			--   install_path = "~/AppData/Local/nvim-data/"
-			-- }) end}
-			--
+			use {"ellisonleao/glow.nvim", config = function() require("glow").setup({
+			  install_path = "~/AppData/Local/nvim-data/"
+			}) end}
+
 			-- Scroll bar for neovim
 			use("petertriho/nvim-scrollbar")
 
@@ -255,12 +255,12 @@ function M.setup()
       use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
       use "folke/neodev.nvim"
       use 'ldelossa/nvim-dap-projects'
-      use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
 			use({
 				"microsoft/vscode-js-debug",
 				opt = true,
 				run = "npm install --legacy-peer-deps && npm run compile",
 			})
+      use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
 		end,
 		config = {
 			display = {

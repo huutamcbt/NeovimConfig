@@ -55,8 +55,8 @@ vim.cmd("autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatopt
 
 ------------------------------ Call some essential files------------------------------------------
 
-require("config.theme")
 require("plugins").setup()
+require("config.theme")
 require("config.airline")
 require("Comment").setup()
 require("config.nvim-tree")
@@ -79,7 +79,7 @@ require("lspconfig").csharp_ls.setup({})
 -- require'lspconfig'.cssls.setup{}
 -- require'lspconfig'.html.setup{}
 -- require'lspconfig'.cssmodules_ls.setup{}
-require("lspconfig").sumneko_lua.setup({})
+-- require("lspconfig").sumneko_lua.setup({})
 require("lspconfig").jdtls.setup({})
 require("config.null-ls")
 -- A high-performance color highlighter

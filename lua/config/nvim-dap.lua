@@ -1,6 +1,11 @@
+local status_ok_1, dap_vscode_js = pcall(require, "dap-vscode-js");
+local status_ok_2, dap = pcall(require, "dap");
+
+if (not status_ok_1) or (not status_ok_2) then return end
+
 ------------------------ Javascript -----------------------------
 
-require("dap-vscode-js").setup({
+dap_vscode_js.setup({
 	node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
 	debugger_path = "C:/Users/ADMIN/AppData/Local/nvim-data/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
 	debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
@@ -11,7 +16,7 @@ require("dap-vscode-js").setup({
 })
 
 for _, language in ipairs({ "typescript", "javascript" }) do
-	require("dap").configurations[language] = {
+	dap.configurations[language] = {
 		{
 			{
 				type = "pwa-node",

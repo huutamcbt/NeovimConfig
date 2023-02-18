@@ -1,3 +1,6 @@
+local status_ok, toggleterm = pcall(require,"toggleterm");
+if(not status_ok) then return end
+
 -- Config for powershell for terminal
 if vim.fn.has("win32") then
 	local powershell_options = {
@@ -14,7 +17,7 @@ if vim.fn.has("win32") then
 	end
 end
 
-require("toggleterm").setup({
+toggleterm.setup({
 	-- size can be a number or function which is passed the current terminal
 	size = function(term)
 		if term.direction == "horizontal" then

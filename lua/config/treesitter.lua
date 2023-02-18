@@ -1,6 +1,12 @@
+local status_ok_1, nvim_treesitter = pcall(require, "nvim-treesitter");
+local status_ok_2, npairs = pcall(require, "nvim-autopairs");
+local status_ok_3, Rule = pcall(require,"nvim-autopairs.rule");
+local status_ok_4, ts_conds = pcall(require, "nvim-autopairs.ts-conds");
+if(not status_ok_1) or (not status_ok_2) or (not status_ok_3) or (not status_ok_4) then print(status_ok_1, status_ok_2, status_ok_3,status_ok_4) return end
+
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the four listed parsers should always be installed)
-	ensure_installed = { "c", "lua", "vim", "help", "html" },
+	ensure_installed = { "c", "lua", "vim", "help", "html", "java" },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
@@ -56,9 +62,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	update_in_insert = true,
 })
 
-local npairs = require("nvim-autopairs")
-local Rule = require("nvim-autopairs.rule")
-
 npairs.setup({
 	check_ts = true,
 	ts_config = {
@@ -68,7 +71,6 @@ npairs.setup({
 	},
 })
 
-local ts_conds = require("nvim-autopairs.ts-conds")
 
 -- press % => %% only while inside a comment or string
 npairs.add_rules({

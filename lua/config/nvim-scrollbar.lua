@@ -1,6 +1,10 @@
+local status_ok_1, tokyonight = pcall(require, "tokyonight");
+local status_ok_2, scrollbar = pcall(require, "scrollbar");
+if (not status_ok_1) or (not status_ok_2) then return end
+
 local colors = require("tokyonight.colors").setup()
 
-require("scrollbar").setup({
+scrollbar.setup({
     handle = {
         color = colors.bg_highlight,
     },

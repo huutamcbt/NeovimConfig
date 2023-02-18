@@ -1,3 +1,10 @@
+local status_ok_1 = pcall(require,"cmp_nvim_lsp");
+local status_ok_2 = pcall(require,"lspconfig");
+local status_ok_3 = pcall(require,"luasnip");
+local status_ok_4 = pcall(require,"cmp");
+
+if (not status_ok_1) or (not status_ok_2) or (not status_ok_3) or (not status_ok_4) then return end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -38,39 +45,20 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
--- require('lspconfig')['pyright'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
--- require('lspconfig')['tsserver'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
--- require('lspconfig')['rust_analyzer'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
---     -- Server-specific settings...
---     settings = {
---       ["rust-analyzer"] = {}
---     }
--- }
--- require('lspconfig')['clangd'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "rust_analyzer", "pyright", "tsserver", "cssls" }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  })
-end
+-- local servers = { "rust_analyzer", "pyright", "tsserver", "cssls"  }
+-- for _, lsp in ipairs(servers) do
+--   lspconfig[lsp].setup({
+--     on_attach = my_custom_on_attach,
+--     capabilities = capabilities,
+--   })
+-- end
 
 local kind_icons = {
   Text = "",
@@ -208,21 +196,6 @@ cmp.setup.cmdline({ "/", "?" }, {
 -- Set up lspconfig.
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require("lspconfig")["<clangd>"].setup({
--- 	capabilities = capabilities,
--- })
---
--- require("lspconfig").omnisharp.setup{
--- 	capabilities = capabilities,
--- }
-
---Enable (broadcasting) snippet capability for completion
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
---
--- require'lspconfig'.cssls.setup {
---   capabilities = capabilities,
--- }
 
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -231,3 +204,35 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require("lspconfig").html.setup({
   capabilities = capabilities,
 })
+
+require("lspconfig")['jdtls'].setup {
+     on_attach = on_attach,
+     flags = lsp_flags,
+     single_file_support = true,
+     root_dir = function(fname) 
+          return vim.fn.getcwd();
+     end
+}
+
+require'lspconfig'.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}

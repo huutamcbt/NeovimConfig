@@ -101,7 +101,6 @@ require("glow").setup({
 	install_path = "C:/Users/ADMIN/AppData/Local/nvim-data",
 })
 require("config.keymap")
-
 -- require("zen-mode").toggle({
 --   window = {
 --     width = 0.85, -- width will be 85% of the editor width
@@ -113,3 +112,4 @@ require("config.keymap")
 --     show_current_context = true,
 --     show_current_context_start = true,
 -- }
+

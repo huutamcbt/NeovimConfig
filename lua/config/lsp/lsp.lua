@@ -205,14 +205,14 @@ require("lspconfig").html.setup({
   capabilities = capabilities,
 })
 
-require("lspconfig")['jdtls'].setup {
-     on_attach = on_attach,
-     flags = lsp_flags,
-     single_file_support = true,
-     root_dir = function(fname) 
-          return vim.fn.getcwd();
-     end
-}
+-- require("lspconfig")['jdtls'].setup {
+--      on_attach = on_attach,
+--      flags = lsp_flags,
+--      -- single_file_support = true,
+--      -- root_dir = function(fname) 
+--      --      return vim.fn.getcwd();
+--      -- end
+-- }
 
 require'lspconfig'.lua_ls.setup {
   settings = {

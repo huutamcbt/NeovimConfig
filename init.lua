@@ -58,39 +58,23 @@ vim.cmd("autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatopt
 require("plugins").setup()
 require("config.theme")
 require("config.airline")
-require("Comment").setup()
+require("config.comment")
 require("config.nvim-tree")
 require("config.bufferline")
 require("config.toggleterm")
--- require ('config.lsp.cmp')
 require("config.treesitter")
-require("nvim-treesitter.install").compilers = { "clang", "gcc" }
-require("telescope").load_extension("file_browser")
 require("config.mason")
 require("config.mason-lspconfig")
 require("config.lsp.lsp")
 require("config.neodev")
-require("lspconfig").pyright.setup({})
-require("lspconfig").tsserver.setup({})
-require("lspconfig").clangd.setup({})
-require("lspconfig").eslint.setup({})
-require("lspconfig").csharp_ls.setup({})
 require("config.null-ls")
 -- A high-performance color highlighter
-require("colorizer").setup({
-	"*",
-})
-require("image_preview").setup({})
+
 require("config.gitsigns")
 require("config.lualine")
-require("git").setup()
 require("config.nvim-dap")
-require("dapui").setup()
-require("glow").setup({
-	style = "dark",
-	width = 120,
-	glow_path = vim.fn.exepath("glow"),
-	install_path = "C:/Users/ADMIN/AppData/Local/nvim-data",
-})
+require("config.dapui")
+require("config.glow")
+require("config.colorizer")
 require("config.keymap")
 

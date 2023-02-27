@@ -236,3 +236,10 @@ require'lspconfig'.lua_ls.setup {
     },
   },
 }
+
+require("lspconfig").pyright.setup({})
+require("lspconfig").tsserver.setup({})
+require("lspconfig").clangd.setup({})
+require("lspconfig").eslint.setup({})
+require("lspconfig").csharp_ls.setup({})
+

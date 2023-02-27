@@ -75,19 +75,11 @@ require("lspconfig").tsserver.setup({})
 require("lspconfig").clangd.setup({})
 require("lspconfig").eslint.setup({})
 require("lspconfig").csharp_ls.setup({})
--- require'lspconfig'.cssls.setup{}
--- require'lspconfig'.html.setup{}
--- require'lspconfig'.cssmodules_ls.setup{}
--- require("lspconfig").sumneko_lua.setup({})
--- require("lspconfig").jdtls.setup({})
 require("config.null-ls")
 -- A high-performance color highlighter
 require("colorizer").setup({
 	"*",
 })
--- require "config.nvim-scrollbar"
--- require 'config.markdown'
--- require ('hlslens').setup()
 require("image_preview").setup({})
 require("config.gitsigns")
 require("config.lualine")
@@ -101,15 +93,4 @@ require("glow").setup({
 	install_path = "C:/Users/ADMIN/AppData/Local/nvim-data",
 })
 require("config.keymap")
--- require("zen-mode").toggle({
---   window = {
---     width = 0.85, -- width will be 85% of the editor width
---   },
--- })
-
--- require("indent_blankline").setup {
---     -- for example, context is off by default, use this to turn it on
---     show_current_context = true,
---     show_current_context_start = true,
--- }
 

@@ -16,7 +16,6 @@ function M.setup()
           install_plugins = true
      end
 
-     require("local-plugins").install()
      -- Autocommand that reloads neovim whenever you save the plugins.lua file
 --      vim.cmd([[
 --   augroup packer_user_config
@@ -102,13 +101,6 @@ function M.setup()
                -- Formatting
                require("packer").use({ "mhartington/formatter.nvim" })
 
-               -- Indent blankline
-               -- init.lua
-               -- require("packer").startup(function()
-               --     use "lukas-reineke/indent-blankline.nvim"
-               -- end)
-               -- Make dir if it don't exist when init file
-               -- mkdir
                use({
                     "jghauser/mkdir.nvim",
                })
@@ -198,22 +190,7 @@ function M.setup()
                          })
                     end,
                })
-               -- install without yarn or npm
-               -- use({
-               --   "iamcco/markdown-preview.nvim",
-               --   run = function()
-               --     vim.fn["mkdp#util#install"]()
-               --   end,
-               -- })
-               -- -- Markdown preview
-               -- use({
-               --   "iamcco/markdown-preview.nvim",
-               --   run = "cd app && npm install",
-               --   setup = function()
-               --     vim.g.mkdp_filetypes = { "markdown" }
-               --   end,
-               --   ft = { "markdown" },
-               -- })
+
                use { "ellisonleao/glow.nvim", config = function()
                     require("glow").setup({
                          install_path = "~/AppData/Local/nvim-data/"
@@ -257,13 +234,13 @@ function M.setup()
                use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
                use "folke/neodev.nvim"
                use 'ldelossa/nvim-dap-projects'
-               use({
-                    "microsoft/vscode-js-debug",
-                    opt = true,
-                    run = "npm install --legacy-peer-deps && npm run compile",
-               })
-               use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
-               use 'mfussenegger/nvim-jdtls'
+               -- use({
+               --      "microsoft/vscode-js-debug",
+               --      opt = true,
+               --      run = "npm install --legacy-peer-deps && npm run compile",
+               -- })
+               -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+               -- use 'mfussenegger/nvim-jdtls'
           end,
           config = {
                display = {

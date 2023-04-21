@@ -31,12 +31,12 @@ opt.showtabline = 2
 opt.wrap = true -- When this option is true, lines longer than the width of the window will wrap and displaying continues on the next line
 opt.cursorline = true
 opt.showmode = true
-
+opt.linebreak = true -- break line for the complete word
 ------------------------------ Command setting ------------------------------------------
 
 -- Setup clipboard for specific OS
 vim.cmd([[
-	if has('unix')
+	if has('win32')
 		set clipboard^=unnamed,unnamedplus
 	else
 		set clipboard=unnamedplus

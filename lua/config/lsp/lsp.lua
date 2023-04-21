@@ -194,25 +194,25 @@ cmp.setup.cmdline({ "/", "?" }, {
 -- })
 
 -- Set up lspconfig.
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 
 --Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require("lspconfig").html.setup({
   capabilities = capabilities,
 })
 
--- require("lspconfig")['jdtls'].setup {
---      on_attach = on_attach,
---      flags = lsp_flags,
---      -- single_file_support = true,
---      -- root_dir = function(fname) 
---      --      return vim.fn.getcwd();
---      -- end
--- }
+require("lspconfig")['jdtls'].setup({
+     on_attach = on_attach,
+     capabilities = capabilites,
+     single_file_support = true,
+     root_dir = function(filename, bufnr)
+     return  nil
+     end
+}) 
+
 
 require'lspconfig'.lua_ls.setup {
   settings = {
@@ -238,7 +238,10 @@ require'lspconfig'.lua_ls.setup {
 }
 
 require("lspconfig").pyright.setup({})
-require("lspconfig").tsserver.setup({})
+require("lspconfig").tsserver.setup({
+     on_attach = on_attach,
+     capabilities = capabilities,
+})
 require("lspconfig").clangd.setup({})
 require("lspconfig").eslint.setup({})
 require("lspconfig").csharp_ls.setup({})
